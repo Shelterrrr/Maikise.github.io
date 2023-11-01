@@ -1,0 +1,13 @@
+http://example.com/post/preflab.html
+http://example.com/post/54c69bca.html
+http://example.com/message/index.html
+http://example.com/post/54c69bcb.html
+http://example.com/archives/index.html
+http://example.com/tags/index.html
+http://example.com/categories/index.html
+http://example.com/post/undefined.html
+http://example.com/about/index.html
+http://example.com/
+http://example.com/tags/%E6%91%B8%E9%B1%BC-%E6%80%BB%E7%BB%93/
+http://example.com/tags/AI/
+http://example.com/tags/CSAPP-%E5%8E%9F%E7%A5%9E/
