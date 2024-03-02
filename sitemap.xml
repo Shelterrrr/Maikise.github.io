@@ -20,9 +20,18 @@
   </url>
   
   <url>
-    <loc>http://example.com/post/undefined.html</loc>
+    <loc>http://example.com/post/ghosttrick.html</loc>
     
-    <lastmod>2024-01-02</lastmod>
+    <lastmod>2024-03-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/post/cachelab.html</loc>
+    
+    <lastmod>2024-03-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -127,6 +136,13 @@
   
   <url>
     <loc>http://example.com/tags/AI/</loc>
+    <lastmod>2024-03-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Games/</loc>
     <lastmod>2024-03-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
