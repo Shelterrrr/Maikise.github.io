@@ -1,0 +1,488 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Web测试 | 避难所</title><meta name="author" content="Shel"><meta name="copyright" content="Shel"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、实验目的1、了解Web系统中的界面测试、功能测试、链接测试、表单测试。 2、能熟练应用白盒和黑盒方法对web界面、功能、表单等方面进行测试用例设计并测试。 二、实验环境Windows环境，Word相关的办公软件，使用 Chrome内核(版本50以上) 和 IE9及以上内核 的浏览器。 三、实验原理Web测试主要包括界面测试、功能测试、表单测试、性能测试、兼容性测试等通过Web测试可以尽可能地多">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web测试">
+<meta property="og:url" content="https://5helter.com/posts/32311/index.html">
+<meta property="og:site_name" content="避难所">
+<meta property="og:description" content="一、实验目的1、了解Web系统中的界面测试、功能测试、链接测试、表单测试。 2、能熟练应用白盒和黑盒方法对web界面、功能、表单等方面进行测试用例设计并测试。 二、实验环境Windows环境，Word相关的办公软件，使用 Chrome内核(版本50以上) 和 IE9及以上内核 的浏览器。 三、实验原理Web测试主要包括界面测试、功能测试、表单测试、性能测试、兼容性测试等通过Web测试可以尽可能地多">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2024/03/02/hRACPauVJYO5X8t.jpg">
+<meta property="article:published_time" content="2024-09-28T09:08:56.000Z">
+<meta property="article:modified_time" content="2024-09-28T09:43:41.913Z">
+<meta property="article:author" content="Shel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/03/02/hRACPauVJYO5X8t.jpg"><link rel="shortcut icon" href="/img/touxiang.jpg"><link rel="canonical" href="https://5helter.com/posts/32311/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Web测试',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-28 17:43:41'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 不要点</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2024/03/02/hRACPauVJYO5X8t.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="避难所"><span class="site-name">避难所</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 不要点</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Web测试</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-09-28T09:08:56.000Z" title="Created 2024-09-28 17:08:56">2024-09-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-28T09:43:41.913Z" title="Updated 2024-09-28 17:43:41">2024-09-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Web测试"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><p>1、了解Web系统中的界面测试、功能测试、链接测试、表单测试。</p>
+<p>2、能熟练应用白盒和黑盒方法对web界面、功能、表单等方面进行测试用例设计并测试。</p>
+<h3 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h3><p>Windows环境，Word相关的办公软件，使用 Chrome内核(版本50以上) 和 IE9及以上内核 的浏览器。</p>
+<h3 id="三、实验原理"><a href="#三、实验原理" class="headerlink" title="三、实验原理"></a>三、实验原理</h3><p>Web测试主要包括界面测试、功能测试、表单测试、性能测试、兼容性测试等通过Web测试可以尽可能地多发现浏览器端和服务器端程序中的错误并及时加以修正，以保证应用的质量。本实验主要进行界面测试、功能测试、表单测试。</p>
+<p>1、界面测试</p>
+<p>用户界面测试是指测试用户界面的风格是否满足客户要求，文字是否正确，页面是否美观，文字，图片组合是否完美，操作是否友好等。UI 测试的目标是确保用户界面会通过测试对象的功能来为用户提供相应的访问或浏览功能。确保用户界面符合公司或行业的标准。包括用户友好性、人性化、易操作性测试。</p>
+<p>2、功能测试</p>
+<p>Web应用程序中的功能测试主要是对页面的链接、按钮等页面元素功能是否正常工作的测试。</p>
+<p>链接是Web应用系统的一个主要特征，它是在页面之间切换和指导用户去一些未知地址的页面的主要手段。链接测试可分为3个方面。首先，测试所有链接是否按指示的那样确实链接到了该链接的页面；其次，测试所链接的页面是否存在；最后，保证 Web应用系统上没有孤立的页面，所谓孤立页面是指没有链接指向该页面，只有知道正确的URL地址才能访问。链接测试可以自动进行，现在已经有许多工具可以采用。链接测试必须在集成测试阶段完成，亦即在整个Web应用系统的所有页面开发完成之后进行链接测试</p>
+<p>按钮测试：主要测试页面按钮是否工作，工作是否正常。</p>
+<p>3、表单测试：</p>
+<p>当用户通过表单提交信息的时候，都希望表单能正常工作。如果使用表单来进行在线注册，要确保提交按钮能正常工作，当注册完成后应返回注册成功的消息。如果使用表单收集配送信息，应确保程序能够正确处理这些数据，最后能让用户收到信息。要测试这些程序，需要验证服务器是否能正确保存这些数据，而且后台运行的程序能否正确解释和使用这些信息。当用户使用表单进行用户注册、登录、信息提交等操作时，必须测试提交操作的完整性，以校验提交给服务器的信息的正确性。如果使用默认值，还要检验默认值的正确性。如果表单只能接受指定的某些值，则也要进行测试。</p>
+<h3 id="四、实验内容"><a href="#四、实验内容" class="headerlink" title="四、实验内容"></a>四、实验内容</h3><p>自选网站系统（可选<a target="_blank" rel="noopener" href="https://www.saucedemo.com/">https://www.saucedemo.com/</a> 或者校内网站或者自选其他网站），选择核心的功能模块，运用主要的Web测试方法：界面测试、功能测试（主要测试功能完整性和准确性、链接是否正常、按钮是否正常等）、表单测试等方法进行Web测试用例设计。</p>
+<p><strong>1*<em>**、界面测试主要验证界面的正确性、一致性、友好性、易用性，**</em>*主要测试点如下：</strong></p>
+<p>1）页面清单是否完整（是否已经将所需要的页面全部都列出来了）；</p>
+<p>2）页面是否显示（在不同分辨率下页面是否存在，在不同浏览器版本中页面是是否显示）；</p>
+<p>3）页面在窗口中的显示是否正确、美观（在调整浏览器窗口大小时，屏幕刷新是否正确）；</p>
+<p>4）页面特殊效果（如特殊字体效果、动画效果）是否显示；</p>
+<p>5）页面特殊效果显示是否正确；</p>
+<p>6）页面元素清单（为实现功能，是否将所需要的元素全部都列出来了，如按钮、单选框、复选框、列表框、超连接、输入框等等）；</p>
+<p>7）页面元素是否显示正确（主要针对文字、图形、签章）；</p>
+<p>8）页面元素的外形、摆放位置（如按钮、列表框、核选框、输入框、超连接等）；</p>
+<p>10）页面的风格是否一致，如字的大小、颜色、字体要相同</p>
+<p>11）按钮排列顺序是否一致；</p>
+<p>12）页面最大化检查：测试最大化&#x2F;最小化&#x2F;还原时页面是否做了对应的处理。</p>
+<p>*<em>2*</em>*<em>、链接测试：</em>*</p>
+<ol>
+<li>测试所链接的页面是否存在</li>
+<li>测试所有链接是否确实链接到正确的页面</li>
+<li>测试是否有孤立页面</li>
+</ol>
+<p><strong>3、*<em>**表单测试**</em>*：常见的表单操作有用户注册、用户登陆、查询数据、数据排序、将商品放入购物篮、修改网购商品数量、填写收货人地址通过网银支付等。主要测试点如下：</strong></p>
+<ol>
+<li>文本框测试；</li>
+<li>用户与密码输入域；</li>
+<li>日期填充域；</li>
+<li>电话号码填充域；</li>
+<li>电子邮件填充域；</li>
+<li>数量填充域；</li>
+<li>必填字段填充域；</li>
+<li>单选按钮；</li>
+<li>复选框；</li>
+<li>大块文字区域；</li>
+<li>下拉列表框；</li>
+<li>排序；</li>
+<li>分页；</li>
+<li>搜索框；</li>
+<li>用户登录；</li>
+<li>特殊字符处理；</li>
+</ol>
+<h3 id="五、实验步骤"><a href="#五、实验步骤" class="headerlink" title="五、实验步骤"></a>五、实验步骤</h3><p>1、 确认所选网站的测试项目，主要考虑<strong>界面、链接、表单、功能</strong>等方面的测试项目；</p>
+<p>2、采用等价划分类、边界值等黑盒测试方法，设计界面、功能、表单等测试用例；</p>
+<p>3、根据设计的测试用例集进行测试，并记录测试结果，包括测试缺陷。</p>
+<h3 id="六、实验要求"><a href="#六、实验要求" class="headerlink" title="六、实验要求"></a>六、实验要求</h3><p>1、根据题目要求设计测试用；</p>
+<p>2、根据设计的测试用例进行测试，并记录测试结果；</p>
+<h3 id="七、实验结果"><a href="#七、实验结果" class="headerlink" title="七、实验结果"></a>七、实验结果</h3><p><strong>测试用例模板及测试结果示例：</strong></p>
+<p><strong>注册模块测试用例及测试结果示例：</strong></p>
+<table>
+<thead>
+<tr>
+<th>用户注册模块测试用例</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号</td>
+<td>测试用例名称</td>
+<td>前置条件</td>
+<td>测试步骤</td>
+<td>输入数据</td>
+<td>预期结果</td>
+<td>实际结果</td>
+</tr>
+<tr>
+<td>1</td>
+<td>用户与密码格式符合要求</td>
+<td>正常打开系统页面</td>
+<td>输入用户名，密码和密码确认，点击“提交表单”</td>
+<td>用户名：a09.-_z 密码：123456 密码确认：123456</td>
+<td>注册成功</td>
+<td>测试通过，注册成功</td>
+</tr>
+<tr>
+<td>2</td>
+<td>用户名字符名非法</td>
+<td>正常打开系统页面</td>
+<td>输入用户名，密码和密码确认，点击“提交表单”</td>
+<td>用户名：@ # $ 密码：123456 密码确认：123456</td>
+<td>提示“用户名非法，请重新输入”</td>
+<td>测试通过。提示“用户名非法，请重新输入”</td>
+</tr>
+<tr>
+<td>3</td>
+<td>用户名空格</td>
+<td>正常打开系统页面</td>
+<td>输入用户名，密码和密码确认，点击“提交表单”</td>
+<td>用户名：空格 密码：123456 密码确认：123456</td>
+<td>提示“用户名非法，请重新输入”</td>
+<td>测试通过，提示“用户名非法，请重新输入”</td>
+</tr>
+<tr>
+<td>4</td>
+<td>用户名非数字或字母开头</td>
+<td>正常打开系统页面</td>
+<td>输入用户名，密码和密码确认，点击“提交表单”</td>
+<td>用户名：-_ 密码：123456 密码确认：123456</td>
+<td>提示“用户名只能以数字或字母开头和结尾，请重新输入”</td>
+<td>测试通过，提示“用户名只能以数字或字母开头和结尾，请重新输入”</td>
+</tr>
+</tbody></table>
+<p>1、界面模块测试用例及测试结果示例：</p>
+<table>
+<thead>
+<tr>
+<th>界面模块模块测试用例</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号</td>
+<td>测试用例名称</td>
+<td>前置条件</td>
+<td>测试步骤</td>
+<td>输入数据</td>
+<td>预期结果</td>
+<td>实际结果</td>
+</tr>
+<tr>
+<td>1</td>
+<td>页面清单完整显示</td>
+<td>正常打开系统界面</td>
+<td>观察</td>
+<td>无</td>
+<td>页面清单正常显示完整</td>
+<td>测试通过，页面清单正常显示完整</td>
+</tr>
+<tr>
+<td>2</td>
+<td>鼠标点击特效正常</td>
+<td>正常打开系统界面</td>
+<td>点击鼠标</td>
+<td>无</td>
+<td>出现正常鼠标点击特效</td>
+<td>测试通过，出现正常鼠标点击特效</td>
+</tr>
+<tr>
+<td>3</td>
+<td>下拉标签页正常显示</td>
+<td>正常打开系统界面</td>
+<td>点击标签页</td>
+<td>无</td>
+<td>正常出现下拉标签页</td>
+<td>测试通过，正常出现下拉标签页</td>
+</tr>
+<tr>
+<td>4</td>
+<td>缩放界面比例正常</td>
+<td>正常打开系统界面</td>
+<td>更改浏览器缩放</td>
+<td>无</td>
+<td>页面缩放比例正常</td>
+<td>测试通过，页面缩放比例正常</td>
+</tr>
+</tbody></table>
+<p>2、链接测试：</p>
+<table>
+<thead>
+<tr>
+<th>链接模块测试用例</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号</td>
+<td>测试用例名称</td>
+<td>前置条件</td>
+<td>测试步骤</td>
+<td>输入数据</td>
+<td>预期结果</td>
+<td>实际结果</td>
+</tr>
+<tr>
+<td>1</td>
+<td>链接存在</td>
+<td>正常打开系统界面</td>
+<td>点击测试的链接</td>
+<td>无</td>
+<td>能够返回链接所指地址</td>
+<td>测试通过，能够返回链接所指地址</td>
+</tr>
+<tr>
+<td>2</td>
+<td>链接指向地址正确</td>
+<td>正常打开系统界面</td>
+<td>点击测试的链接</td>
+<td>无</td>
+<td>返回地址正确</td>
+<td>测试通过，能够返回到正确地址</td>
+</tr>
+<tr>
+<td>3</td>
+<td>测试是否存在孤立页面</td>
+<td>正常打开系统界面</td>
+<td>检查所有内部链接，包括文本链接、按钮等。</td>
+<td>无</td>
+<td>每个链接都指向存在的界面</td>
+<td>测试通过，每个链接都指向存在的界面</td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>3、功能&#x2F;表单测试用例及测试结果示例：</p>
+<table>
+<thead>
+<tr>
+<th>功能&#x2F;表单测试用例</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用例编号</td>
+<td>测试用例名称</td>
+<td>前置条件</td>
+<td>测试步骤</td>
+<td>输入数据</td>
+<td>预期结果</td>
+<td>实际结果</td>
+</tr>
+<tr>
+<td>1</td>
+<td>搜索框输入存在的文章</td>
+<td>正常打开系统界面</td>
+<td>输入文章名</td>
+<td>一些最近的AI工具整理</td>
+<td>跳转到文章页面</td>
+<td>测试通过，跳转到文章界面</td>
+</tr>
+<tr>
+<td>2</td>
+<td>搜多框输入不存在的文章</td>
+<td>正常打开系统界面</td>
+<td>输入文章名</td>
+<td>Test</td>
+<td>提示不存在该文章</td>
+<td>测试通过，提示不存在该文章</td>
+</tr>
+<tr>
+<td>3</td>
+<td>评论区回复合法字符</td>
+<td>正常打开系统界面</td>
+<td>输入合法回复</td>
+<td>Test</td>
+<td>提示发送成功</td>
+<td>测试通过，提示发送成功</td>
+</tr>
+<tr>
+<td>4</td>
+<td>评论区回复非法字符</td>
+<td>正常打开系统界面</td>
+<td>输入非法回复</td>
+<td>插入图片</td>
+<td>提示发送失败，图片为非法格式</td>
+<td>测试通过，提示图片为非法格式</td>
+</tr>
+</tbody></table>
+<p>4、测试结果统计</p>
+<table>
+<thead>
+<tr>
+<th>测试项目</th>
+<th>测试用例数</th>
+<th>测试通过数</th>
+<th>测试未通过数</th>
+<th>缺陷数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>界面测试</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>链接测试</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>表单测试</td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>合计</td>
+<td>12</td>
+<td>12</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h3 id="八、实验总结"><a href="#八、实验总结" class="headerlink" title="八、实验总结"></a>八、实验总结</h3><p>总结本次实验中，个人遇见的问题以及收获，或者描述对本次实验涉及的相关知识及技能的一些见解。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://5helter.com">Shel</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://5helter.com/posts/32311/">https://5helter.com/posts/32311/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2024/03/02/hRACPauVJYO5X8t.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/24801/" title="幽灵诡计爽完通关后对叙述性诡计的一点感叹"><img class="cover" src="https://s2.loli.net/2024/03/02/heTI81wYVDLEG7v.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">幽灵诡计爽完通关后对叙述性诡计的一点感叹</div></div></a></div><div class="next-post pull-right"><a href="/posts/2344/" title="CSAPP实验之cachelab"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">CSAPP实验之cachelab</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Shel</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Shelterrrr"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Makise" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">本站复活，部分功能以及文章丢失！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">二、实验环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">三、实验原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="toc-number">4.</span> <span class="toc-text">四、实验内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">5.</span> <span class="toc-text">五、实验步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82"><span class="toc-number">6.</span> <span class="toc-text">六、实验要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">7.</span> <span class="toc-text">七、实验结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">八、实验总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/24801/" title="幽灵诡计爽完通关后对叙述性诡计的一点感叹"><img src="https://s2.loli.net/2024/03/02/heTI81wYVDLEG7v.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="幽灵诡计爽完通关后对叙述性诡计的一点感叹"/></a><div class="content"><a class="title" href="/posts/24801/" title="幽灵诡计爽完通关后对叙述性诡计的一点感叹">幽灵诡计爽完通关后对叙述性诡计的一点感叹</a><time datetime="2024-09-28T09:09:10.000Z" title="Created 2024-09-28 17:09:10">2024-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/32311/" title="Web测试"><img src="https://s2.loli.net/2024/03/02/hRACPauVJYO5X8t.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Web测试"/></a><div class="content"><a class="title" href="/posts/32311/" title="Web测试">Web测试</a><time datetime="2024-09-28T09:08:56.000Z" title="Created 2024-09-28 17:08:56">2024-09-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2344/" title="CSAPP实验之cachelab">CSAPP实验之cachelab</a><time datetime="2024-09-28T09:08:44.000Z" title="Created 2024-09-28 17:08:44">2024-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/44877/" title="junit测试"><img src="https://s2.loli.net/2024/03/02/3RTLb4WsCKy5vkN.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="junit测试"/></a><div class="content"><a class="title" href="/posts/44877/" title="junit测试">junit测试</a><time datetime="2024-09-28T09:08:37.000Z" title="Created 2024-09-28 17:08:37">2024-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/13616/" title="SAPP实验之malloclab"><img src="https://s2.loli.net/2024/03/02/4zMPCvtky7LOdoe.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SAPP实验之malloclab"/></a><div class="content"><a class="title" href="/posts/13616/" title="SAPP实验之malloclab">SAPP实验之malloclab</a><time datetime="2024-09-28T09:08:27.000Z" title="Created 2024-09-28 17:08:27">2024-09-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2024/03/02/hRACPauVJYO5X8t.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Shel</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

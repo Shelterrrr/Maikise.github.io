@@ -1,0 +1,1547 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>黑盒测试 | 避难所</title><meta name="author" content="Shel"><meta name="copyright" content="Shel"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、实验目的 \1. 掌握黑盒测试的基础知识，理解黑盒测试概念和测试目的； \2. 掌握黑盒测试的等价类划分方法、边界值分析方法等基本测试方法，能熟练应用这些测试技术进行测试用例设计；且能对测试用例进行优化设计； \3. 能熟练应用边界值和决策表测试技术进行测试用例设计； \4. 对测试用例进行优化设计； 二、实验环境 Windows环境，Word相关的办公软件， Java编程环境或C++编程环境">
+<meta property="og:type" content="article">
+<meta property="og:title" content="黑盒测试">
+<meta property="og:url" content="https://5helter.com/posts/29812/index.html">
+<meta property="og:site_name" content="避难所">
+<meta property="og:description" content="一、实验目的 \1. 掌握黑盒测试的基础知识，理解黑盒测试概念和测试目的； \2. 掌握黑盒测试的等价类划分方法、边界值分析方法等基本测试方法，能熟练应用这些测试技术进行测试用例设计；且能对测试用例进行优化设计； \3. 能熟练应用边界值和决策表测试技术进行测试用例设计； \4. 对测试用例进行优化设计； 二、实验环境 Windows环境，Word相关的办公软件， Java编程环境或C++编程环境">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2024/03/02/LlkDPE7gSNh6XzV.jpg">
+<meta property="article:published_time" content="2024-09-28T09:07:59.000Z">
+<meta property="article:modified_time" content="2024-09-28T09:36:50.992Z">
+<meta property="article:author" content="Shel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/03/02/LlkDPE7gSNh6XzV.jpg"><link rel="shortcut icon" href="/img/touxiang.jpg"><link rel="canonical" href="https://5helter.com/posts/29812/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '黑盒测试',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-28 17:36:50'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 不要点</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2024/03/02/LlkDPE7gSNh6XzV.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="避难所"><span class="site-name">避难所</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 不要点</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">黑盒测试</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-09-28T09:07:59.000Z" title="Created 2024-09-28 17:07:59">2024-09-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-28T09:36:50.992Z" title="Updated 2024-09-28 17:36:50">2024-09-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="黑盒测试"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>一、实验目的</p>
+<p>\1. 掌握黑盒测试的基础知识，理解黑盒测试概念和测试目的；</p>
+<p>\2. 掌握黑盒测试的等价类划分方法、边界值分析方法等基本测试方法，能熟练应用这些测试技术进行测试用例设计；且能对测试用例进行优化设计；</p>
+<p>\3. 能熟练应用边界值和决策表测试技术进行测试用例设计；</p>
+<p>\4. 对测试用例进行优化设计；</p>
+<p>二、实验环境</p>
+<p>Windows环境，Word相关的办公软件， Java编程环境或C++编程环境；</p>
+<p>三、实验原理</p>
+<p>实验黑盒测试原理：已知产品的功能设计规格，可以进行测试证明每个实现了的功能是否符合要求。软件的黑盒测试意味着测试要在软件的接口处进行。这种方法是把测试对象看作一个黑盒子，测试人员完全不考虑程序内部的逻辑结构和内部特性，只依据程序的需求规格说明书，检查程序的功能是否符合它的功能说明。因此黑盒测试又叫功能测试。具体的黑盒测试用例设计方法包括等价类划分法、边界值分析法、因果图法、判定表法等。</p>
+<p>等价类划分的办法是把程序的输入域划分成若干部分（子集），然后从每个部分中选取少数代表性数据作为测试用例。每一类的代表性数据在测试中的作用等价于这一类中的其他值。该方法是一种重要的，常用的黑盒测试用例设计方法。</p>
+<p>\1. 划分等价类</p>
+<p>划分等价类：等价类是指某个输入域的子集合。在该子集合中，各个输入数据对于揭露程序中的错误都是等效的，并合理地假定：测试某等价类的代表值就等于对这一类其它值的测试。因此，可以把全部输入数据合理划分为若干等价类，在每一个等价类中取一个数据作为测试的输入条件，就可以用少量代表性的测试数据。取得较好的测试结果。等价类划分可有两种不同的情况：有效等价类和无效等价类。</p>
+<p>有效等价类：是指对于程序的规格说明来说是合理的，有意义的输入数据构成的集合。利用有效等价类可检验程序是否实现了规格说明中所规定的功能和性能。</p>
+<p>无效等价类：与有效等价类的定义恰巧相反。</p>
+<p>设计测试用例时，要同时考虑这两种等价类。因为，软件不仅要能接收合理的数据，也要能经受意外的考验。这样的测试才能确保软件具有更高的可靠性。</p>
+<p>\2. 边界值分析</p>
+<p>边界值分析是通过选择等价类边界的测试用例。边界值分析法不仅重视输入条件边界，而且也必须考虑输出域边界。它是对等价类划分方法的补充。</p>
+<p>边界值分析方法的考虑；长期的测试工作经验告诉我们，大量的错误是发生在输入或输出范围的边界上，而不是发生在输入输出范围的内部。因此针对各种边界情况设计测试用例，可以查出更多的错误。使用边界值分析方法设计测试用例，首先应确定边界情况。通常输入和输出等价类的边界，就是应着重测试的边界情况。应当选取正好等于，刚刚大于或刚刚小于边界的值作为测试数据，而不是选取等价类中的典型值或任意值作为测试数据。</p>
+<ol>
+<li>基于边界值分析方法选择测试用例的原则：</li>
+</ol>
+<p>①　如果输入条件规定了值的范围，则应取刚达到这个范围的边界的值，以及刚刚超越这个范围边界的值作为测试输入数据。</p>
+<p>②　如果输入条件规定了值的个数，则用最大个数，最小个数，比最小个数少一，比最大个数多一的数作为测试数据。</p>
+<p>③　根据规格说明的每个输出条件，使用前面的原则1）。</p>
+<p>④　根据规格说明的每个输出条件，应用前面的原则2）。</p>
+<p>⑤　如果程序的规格说明给出的输入域或输出域是有序集合，则应选取集合的第一个元素和最后一个元素作为测试用例。</p>
+<p>⑥　如果程序中使用了一个内部数据结构，则应当选择这个内部数据结构的边界上的值作为测试用例。</p>
+<p>⑦　分析规格说明，找出其它可能的边界条件。</p>
+<p><strong>基于决策表的测试</strong></p>
+<p>决策表适合描述不同条件集合下采取行动的若干组合的情况。使用决策表标识测试用例，则把条件解释为输入，行动解释为输出。有时条件最终引用输入的等价类，行为引用被测试软件的主要功能处理部分，规则解释为测试用例。</p>
+<p>对于有限条目决策表，如果有n个条件，则必须有2条规则。如果不关心条目实际地表明条件是不相关的，则没有不关心条目的规则统计为1条规则，规则中每出现一个不关心条目，该规则数乘一次2。</p>
+<p>四、实验内容</p>
+<p>针对如下找零程序要求，运用主要的黑盒测试方法：等价类划分法、边界值法、等方法进行黑盒测试用例设计。</p>
+<p>找零程序如下：</p>
+<p>假设商店货品价格(R)皆不大于100 元（且为整数），若顾客付款在100元内(P)，求找给顾客最少货币个（张）数？（货币面值50 元10 元，5 元，1 元四 种 ）。</p>
+<p>实验测试代码：</p>
+<p>\</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">plaintext</span><br><span class="line">#include&quot;stdio.h&quot;</span><br><span class="line"></span><br><span class="line">\#include &quot;conio.h&quot;</span><br><span class="line"></span><br><span class="line">void fun()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> int P； //所收到的钱总数</span><br><span class="line"></span><br><span class="line"> int R；//商品价格总数</span><br><span class="line"></span><br><span class="line"> int i = 0， k = 0， r50 = 0， r10 = 0， r5 = 0， r1 = 0；</span><br><span class="line"></span><br><span class="line">//找零货币张数：r50（50元张数）；r10（10元张数）；r5（5元张数）；r1（1元张数）</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> printf(&quot;请输入商品总价格:&quot;)；</span><br><span class="line"></span><br><span class="line"> scanf_s(&quot;%d&quot;， &amp;R)；</span><br><span class="line"></span><br><span class="line"> printf(&quot;请输入所收的钱是多少:&quot;)；</span><br><span class="line"></span><br><span class="line"> scanf_s(&quot;%d&quot;， &amp;P)；</span><br><span class="line"></span><br><span class="line"> k = P - R；</span><br><span class="line"></span><br><span class="line"> if (R&gt;100||P&gt;100||R&gt;P||P &lt;= 0||R &lt;= 0)</span><br><span class="line"></span><br><span class="line"> &#123;</span><br><span class="line"></span><br><span class="line">   printf(&quot;Wrong:输入大于100元或者商品总价大于所收的钱\n&quot;)；</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> else &#123;</span><br><span class="line"></span><br><span class="line">   if (P - R &gt;= 50)</span><br><span class="line"></span><br><span class="line">   &#123;</span><br><span class="line"></span><br><span class="line">     P = P - 50； r50 = r50 + 1； i++；</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   while (P - R &gt;= 10)</span><br><span class="line"></span><br><span class="line">   &#123;</span><br><span class="line"></span><br><span class="line">     P = P - 10； r10 = r10 + 1； i++；</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   while (P - R &gt;= 5)</span><br><span class="line"></span><br><span class="line">   &#123;</span><br><span class="line"></span><br><span class="line">     P = P - 5； r5 = r5 + 1； i++；</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   while (P - R &gt;= 1)&#123; P = P - 1； r1 = r1 + 1； i++； &#125;</span><br><span class="line"></span><br><span class="line">   printf(&quot;应该找：\n %d 张50块的\n %d 张10块的 \n %d 张5块的 \n %d 张1块的\n共找钱%d张总共%d元\n&quot;， r50， r10， r5， r1， i， k)；</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"> do &#123;</span><br><span class="line"></span><br><span class="line">   fun()；</span><br><span class="line"></span><br><span class="line">   printf(&quot;******************************\n&quot;)；</span><br><span class="line"></span><br><span class="line">   printf(&quot;请按回车继续:\n&quot;)；</span><br><span class="line"></span><br><span class="line"> &#125; while (_getch() == 13)；</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>*<em>NextDate*</em>*<em>函数</em>*</p>
+<p>根据下面给出的规格说明，分别利用决策表方法，给出足够的测试用例并根据用例执行测试。</p>
+<p>NextDate函数包含三个变量：Month（月份）、day（日期）和year（年），函数的输出为输入日期后一天的日期。例如，输入为2007年9月9日，则函数的输出为2007年9月10日。要求输入变量month、day和year均为整数，并且满足下列条件：（1）1&lt;&#x3D;month&lt;&#x3D;12;（2）1&lt;&#x3D;day&lt;&#x3D;31；（3）1912&lt;&#x3D;year&lt;&#x3D;2050</p>
+<p>*<em>C*</em>*<em>语言程序</em>*</p>
+<p>*<em>JAVA*</em>*<em>程序界面</em>*</p>
+<p>五、实验步骤</p>
+<p>1、根据黑盒测试技术设计测试用例，主要考虑等价类划分和边界值分析测试技术；</p>
+<p>2、根据所学知识确定优化策略（原则：用最少的用例检测出更多的缺陷、软件测试的充分性与冗余性考虑），设计测试用例；</p>
+<p>3、根据设计的测试用例集进行测试；</p>
+<p>测试设计按如下步骤</p>
+<p>1、 等价类测试设计过程</p>
+<p>列出输入有效等价类、无效等价类。</p>
+<table>
+<thead>
+<tr>
+<th>输入数据</th>
+<th>有效等价类</th>
+<th>无效等价类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>收到的钱总数 <strong>P</strong></td>
+<td>（1）R&lt;&#x3D;P &lt;&#x3D; 100</td>
+<td>（3）P &gt; 100 （钱给多） （4）P &lt; R （钱给少） （5）P&lt;&#x3D;0</td>
+</tr>
+<tr>
+<td>商品价格总数 <strong>R</strong></td>
+<td>（2）0 &lt; R &lt; &#x3D; 100</td>
+<td>（6）R &gt; 100 （7）R&lt;&#x3D;0</td>
+</tr>
+</tbody></table>
+<p>根据等价类设计的测试用例, 如表1-2。</p>
+<p>表1-2</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>测试输入R</th>
+<th>测试输入P</th>
+<th>预期输出</th>
+<th>覆盖等价类</th>
+<th>测试结果 （此列放入运行结果截图）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>96</td>
+<td>100</td>
+<td>r1&#x3D;4</td>
+<td>1,2</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>10</td>
+<td>不找零</td>
+<td>1,2</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>100</td>
+<td>80</td>
+<td>错误</td>
+<td>2，4,</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>101</td>
+<td>10</td>
+<td>错误</td>
+<td>4,6</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>10</td>
+<td>101</td>
+<td>错误</td>
+<td>2,3</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>-10</td>
+<td>10</td>
+<td>错误</td>
+<td>1,7</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>2、 边界值测试用例设计</p>
+<p>收到的钱总数P取值范围0 &lt; P &lt; &#x3D; 100 ，P取边界值为：</p>
+<p>商品价格总数R取值范围0 &lt; R &lt; &#x3D; 100 ，R取边界值为：</p>
+<p>可以对P&#x2F;R的边界值分开测试，分别测试测试用例。</p>
+<p>表1-4</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>测试输入R</th>
+<th>测试输入P</th>
+<th>预期输出</th>
+<th>测试结果 （此列放入运行结果截图）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>50</td>
+<td>1</td>
+<td>错误提示</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>50</td>
+<td>2</td>
+<td>错误提示</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>50</td>
+<td>50</td>
+<td>不找零</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>50</td>
+<td>99</td>
+<td>r10&#x3D;4，r5&#x3D;1， r1&#x3D;4</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>50</td>
+<td>100</td>
+<td>r50&#x3D;1</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>50</td>
+<td>r10&#x3D;4，r5&#x3D;1， r1&#x3D;4</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>2</td>
+<td>50</td>
+<td>r10&#x3D;4，r5&#x3D;1， r1&#x3D;3</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>99</td>
+<td>50</td>
+<td>错误提示</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>100</td>
+<td>50</td>
+<td>错误提示</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>（1） 首先根据题目要求编写nextday功能函数；</p>
+<p>（2） 根据功能性测试技术设计测试用例，主要考虑决策表测试技术：</p>
+<p> 分析条件桩和动作桩</p>
+<p> 输入：</p>
+<p> -Month</p>
+<p> -Day</p>
+<p> -Year</p>
+<p> 为获得下一个日期，NextDate函数需执行的操作只有如下5种：</p>
+<p> -day变量加1</p>
+<p> -day变量复位为1</p>
+<p> -month变量加1a</p>
+<p> -month变量复位为1</p>
+<p> -year变量加1</p>
+<p> 考虑规则个数：</p>
+<p>M1 &#x3D; {月份：每月有30天}</p>
+<p>M2 &#x3D; {月份：每月有31天，12月除外}</p>
+<p>M3 &#x3D; {月份：此月是12月}</p>
+<p>M4 &#x3D; {月份：此月是2月}</p>
+<p>D1 &#x3D; {日期：1≤日期≤27}</p>
+<p>D2 &#x3D; {日期：日期&#x3D;28}</p>
+<p>D3 &#x3D; {日期：日期&#x3D;29}</p>
+<p>D4 &#x3D; {日期：日期&#x3D;30}</p>
+<p>D5 &#x3D; {日期：日期&#x3D;31}</p>
+<p>Y1 &#x3D; {年：年是闰年}</p>
+<p>Y2 &#x3D; {年：年是平年}</p>
+<p> 制定初始决策表：</p>
+<p>表1-1</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>…….</th>
+<th>22</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>条件桩</td>
+<td>Month在</td>
+<td>M1</td>
+<td>M1</td>
+<td>M1</td>
+<td>M1</td>
+<td>M1</td>
+<td>M2</td>
+<td>M2</td>
+<td>M2</td>
+<td>M2</td>
+<td>M2</td>
+<td>M3</td>
+<td>M3</td>
+<td>M3</td>
+<td>M3</td>
+<td></td>
+<td>M4</td>
+</tr>
+<tr>
+<td>Day在</td>
+<td>D1</td>
+<td>D2</td>
+<td>D3</td>
+<td>D4</td>
+<td>D5</td>
+<td>D1</td>
+<td>D2</td>
+<td>D3</td>
+<td>D4</td>
+<td>D5</td>
+<td>D1</td>
+<td>D2</td>
+<td>D3</td>
+<td>D5</td>
+<td></td>
+<td>D5</td>
+<td></td>
+</tr>
+<tr>
+<td>Year在</td>
+<td>–</td>
+<td>–</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Y2</td>
+<td></td>
+</tr>
+<tr>
+<td>动作桩</td>
+<td>不可能</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>Day加1</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Day复位</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Month加1</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Month复位</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Year加1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p> 化简决策表：</p>
+<p>表1-2</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>条件桩</td>
+<td>Month在</td>
+<td>M1</td>
+<td>M1</td>
+<td>M1</td>
+<td>M2</td>
+<td>M2</td>
+<td>M3</td>
+<td>M3</td>
+<td>M4</td>
+<td>M4</td>
+<td>M4</td>
+<td>M4</td>
+<td>M4</td>
+<td>M4</td>
+</tr>
+<tr>
+<td>Day在</td>
+<td>D1,D2,D3</td>
+<td>D4</td>
+<td>D5</td>
+<td>D1 D2D3D4</td>
+<td>D5</td>
+<td>D1 D2 D3 D4</td>
+<td>D5</td>
+<td>D1</td>
+<td>D2</td>
+<td>D2</td>
+<td>D3 D4 D5</td>
+<td>D3</td>
+<td>D4 D5</td>
+<td></td>
+</tr>
+<tr>
+<td>Year在</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Y1 Y2</td>
+<td>Y2</td>
+<td>Y1</td>
+<td>Y2</td>
+<td>Y1</td>
+<td>Y1</td>
+<td></td>
+</tr>
+<tr>
+<td>动作桩</td>
+<td>不可能</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>Day加1</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Day复位</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Month加1</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Month复位</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Year加1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>（3） 设计测试用例</p>
+<p>表1-3</p>
+<table>
+<thead>
+<tr>
+<th>用例ID</th>
+<th>年份</th>
+<th>月份</th>
+<th>日期</th>
+<th>期望输出</th>
+<th>实际结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>2001</td>
+<td>4</td>
+<td>15</td>
+<td>2001-04-16</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>2001</td>
+<td>4</td>
+<td>30</td>
+<td>2001-05-01</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>2001</td>
+<td>4</td>
+<td>31</td>
+<td>输入有误</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>2001</td>
+<td>5</td>
+<td>15</td>
+<td>2001-5-16</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>2001</td>
+<td>5</td>
+<td>31</td>
+<td>2001-06-01</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>2001</td>
+<td>12</td>
+<td>15</td>
+<td>2001-12-16</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>2001</td>
+<td>12</td>
+<td>31</td>
+<td>2002-01-01</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>2001</td>
+<td>2</td>
+<td>15</td>
+<td>2001-02-15</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>2000</td>
+<td>2</td>
+<td>28</td>
+<td>2000-02-29</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>2001</td>
+<td>2</td>
+<td>28</td>
+<td>2001-03-01</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>2001</td>
+<td>2</td>
+<td>29</td>
+<td>输入有误</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>2000</td>
+<td>2</td>
+<td>29</td>
+<td>2000-03-01</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>2000</td>
+<td>2</td>
+<td>30</td>
+<td>输入有误</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>六、实验结果</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><table>
+<thead>
+<tr>
+<th>输入数据</th>
+<th>有效等价类</th>
+<th>无效等价类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>收到的钱总数 <strong>P</strong></td>
+<td>（1）R&lt;&#x3D;P &lt;&#x3D; 100</td>
+<td>（3）P &gt; 100 （钱给多） （4）P &lt; R （钱给少） （5）P&lt;&#x3D;0</td>
+</tr>
+<tr>
+<td>商品价格总数 <strong>R</strong></td>
+<td>（2）0 &lt; R &lt; &#x3D; 100</td>
+<td>（6）R &gt; 100 （7）R&lt;&#x3D;0</td>
+</tr>
+</tbody></table>
+<p>1、等价类测试设计和结果展示</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>测试输入R</th>
+<th>测试输入P</th>
+<th>预期输出</th>
+<th>覆盖等价类</th>
+<th>测试结果 （此列放入运行结果截图）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>96</td>
+<td>100</td>
+<td>r1&#x3D;4</td>
+<td>1,2</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td>10</td>
+<td>不找零</td>
+<td>1,2</td>
+<td>![img](file:&#x2F;&#x2F;&#x2F;C:&#x2F;Users&#x2F;dell&#x2F;AppData&#x2F;Local&#x2F;Packages&#x2F;oice_16_974fa576_32c1d314_34eb&#x2F;AC&#x2F;Temp&#x2F;msohtmlclip1&#x2F;01&#x2F;clip_image060.jpg</td>
+</tr>
+<tr>
+<td>3</td>
+<td>100</td>
+<td>80</td>
+<td>错误</td>
+<td>2，4,</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>101</td>
+<td>10</td>
+<td>错误</td>
+<td>4,6</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>10</td>
+<td>101</td>
+<td>错误</td>
+<td>2,3</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>-10</td>
+<td>10</td>
+<td>错误</td>
+<td>1,7</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>2、边界值测测试设计和结果展示</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>测试输入R</th>
+<th>测试输入P</th>
+<th>预期输出</th>
+<th>测试结果 （此列放入运行结果截图）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>50</td>
+<td>1</td>
+<td>错误提示</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>50</td>
+<td>2</td>
+<td>错误提示</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>50</td>
+<td>50</td>
+<td>不找零</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>50</td>
+<td>99</td>
+<td>r10&#x3D;4，r5&#x3D;1， r1&#x3D;4</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>50</td>
+<td>100</td>
+<td>r50&#x3D;1</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>50</td>
+<td>r10&#x3D;4，r5&#x3D;1， r1&#x3D;4</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>2</td>
+<td>50</td>
+<td>r10&#x3D;4，r5&#x3D;1， r1&#x3D;3</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>99</td>
+<td>50</td>
+<td>错误提示</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>100</td>
+<td>50</td>
+<td>错误提示</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>初始决策表如图</p>
+<p>表1-1</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>…….</th>
+<th>22</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>条件桩</td>
+<td>Month在</td>
+<td>M1</td>
+<td>M1</td>
+<td>M1</td>
+<td>M1</td>
+<td>M1</td>
+<td>M2</td>
+<td>M2</td>
+<td>M2</td>
+<td>M2</td>
+<td>M2</td>
+<td>M3</td>
+<td>M3</td>
+<td>M3</td>
+<td>M3</td>
+<td></td>
+<td>M4</td>
+</tr>
+<tr>
+<td>Day在</td>
+<td>D1</td>
+<td>D2</td>
+<td>D3</td>
+<td>D4</td>
+<td>D5</td>
+<td>D1</td>
+<td>D2</td>
+<td>D3</td>
+<td>D4</td>
+<td>D5</td>
+<td>D1</td>
+<td>D2</td>
+<td>D3</td>
+<td>D5</td>
+<td></td>
+<td>D5</td>
+<td></td>
+</tr>
+<tr>
+<td>Year在</td>
+<td>–</td>
+<td>–</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Y2</td>
+<td></td>
+</tr>
+<tr>
+<td>动作桩</td>
+<td>不可能</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>Day加1</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Day复位</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Month加1</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Month复位</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Year加1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p> 化简决策表：</p>
+<p>表1-2</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>条件桩</td>
+<td>Month在</td>
+<td>M1</td>
+<td>M1</td>
+<td>M1</td>
+<td>M2</td>
+<td>M2</td>
+<td>M3</td>
+<td>M3</td>
+<td>M4</td>
+<td>M4</td>
+<td>M4</td>
+<td>M4</td>
+<td>M4</td>
+<td>M4</td>
+</tr>
+<tr>
+<td>Day在</td>
+<td>D1,D2,D3</td>
+<td>D4</td>
+<td>D5</td>
+<td>D1 D2D3D4</td>
+<td>D5</td>
+<td>D1 D2 D3 D4</td>
+<td>D5</td>
+<td>D1</td>
+<td>D2</td>
+<td>D2</td>
+<td>D3 D4 D5</td>
+<td>D3</td>
+<td>D4 D5</td>
+<td></td>
+</tr>
+<tr>
+<td>Year在</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Y1 Y2</td>
+<td>Y2</td>
+<td>Y1</td>
+<td>Y2</td>
+<td>Y1</td>
+<td>Y1</td>
+<td></td>
+</tr>
+<tr>
+<td>动作桩</td>
+<td>不可能</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>Day加1</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Day复位</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Month加1</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Month复位</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Year加1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>（1） 设计测试用例</p>
+<p>表1-3</p>
+<table>
+<thead>
+<tr>
+<th>用例ID</th>
+<th>年份</th>
+<th>月份</th>
+<th>日期</th>
+<th>期望输出</th>
+<th>实际结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>2001</td>
+<td>4</td>
+<td>15</td>
+<td>2001-04-16</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>2001</td>
+<td>4</td>
+<td>30</td>
+<td>2001-05-01</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>2001</td>
+<td>4</td>
+<td>31</td>
+<td>输入有误</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>2001</td>
+<td>5</td>
+<td>15</td>
+<td>2001-5-16</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>2001</td>
+<td>5</td>
+<td>31</td>
+<td>2001-06-01</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>2001</td>
+<td>12</td>
+<td>15</td>
+<td>2001-12-16</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>2001</td>
+<td>12</td>
+<td>31</td>
+<td>2002-01-01</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>2001</td>
+<td>2</td>
+<td>15</td>
+<td>2001-02-15</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>2000</td>
+<td>2</td>
+<td>28</td>
+<td>2000-02-29</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>2001</td>
+<td>2</td>
+<td>28</td>
+<td>2001-03-01</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>2001</td>
+<td>2</td>
+<td>29</td>
+<td>输入有误</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>2000</td>
+<td>2</td>
+<td>29</td>
+<td>2000-03-01</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>2000</td>
+<td>2</td>
+<td>30</td>
+<td>输入有误</td>
+<td></td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://5helter.com">Shel</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://5helter.com/posts/29812/">https://5helter.com/posts/29812/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2024/03/02/LlkDPE7gSNh6XzV.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/61761/" title="CSAPP实验之preflab"><img class="cover" src="https://i.postimg.cc/Z5M26SXP/69a0d84e7e61db8b.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">CSAPP实验之preflab</div></div></a></div><div class="next-post pull-right"><a href="/posts/9351/" title="白盒测试"><img class="cover" src="https://s2.loli.net/2024/03/02/VR7ldtfyXB5K6NW.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">白盒测试</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Shel</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Shelterrrr"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Makise" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">本站复活，部分功能以及文章丢失！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/24801/" title="幽灵诡计爽完通关后对叙述性诡计的一点感叹"><img src="https://s2.loli.net/2024/03/02/heTI81wYVDLEG7v.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="幽灵诡计爽完通关后对叙述性诡计的一点感叹"/></a><div class="content"><a class="title" href="/posts/24801/" title="幽灵诡计爽完通关后对叙述性诡计的一点感叹">幽灵诡计爽完通关后对叙述性诡计的一点感叹</a><time datetime="2024-09-28T09:09:10.000Z" title="Created 2024-09-28 17:09:10">2024-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/32311/" title="Web测试"><img src="https://s2.loli.net/2024/03/02/hRACPauVJYO5X8t.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Web测试"/></a><div class="content"><a class="title" href="/posts/32311/" title="Web测试">Web测试</a><time datetime="2024-09-28T09:08:56.000Z" title="Created 2024-09-28 17:08:56">2024-09-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2344/" title="CSAPP实验之cachelab">CSAPP实验之cachelab</a><time datetime="2024-09-28T09:08:44.000Z" title="Created 2024-09-28 17:08:44">2024-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/44877/" title="junit测试"><img src="https://s2.loli.net/2024/03/02/3RTLb4WsCKy5vkN.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="junit测试"/></a><div class="content"><a class="title" href="/posts/44877/" title="junit测试">junit测试</a><time datetime="2024-09-28T09:08:37.000Z" title="Created 2024-09-28 17:08:37">2024-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/13616/" title="SAPP实验之malloclab"><img src="https://s2.loli.net/2024/03/02/4zMPCvtky7LOdoe.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SAPP实验之malloclab"/></a><div class="content"><a class="title" href="/posts/13616/" title="SAPP实验之malloclab">SAPP实验之malloclab</a><time datetime="2024-09-28T09:08:27.000Z" title="Created 2024-09-28 17:08:27">2024-09-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2024/03/02/LlkDPE7gSNh6XzV.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Shel</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
